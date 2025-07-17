@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JUSTE UNE REPRISE</h1>
+    <div>
+        <input type="text" name="" id="entrer" placeholder="Entrer une tâche ici">
+        <button id="ajouter">Ajouter </button>
+        <ul id="idul"></ul>
+    </div>
+
+    <script>
+
+        //recupération
+        var input = document.getElementById('entrer');
+        var button = document.getElementById('ajouter');
+        var underliste = document.getElementById('idul');
+
+
+        function appeler(){
+
+            //alert('bj');
+            //recupération de la valeur
+            var x = input.value.trim();
+            x.classList = 'ecrit';
+
+
+            //creation de li
+            var cli = document.createElement('li');
+            cli.textContent = x ;
+            
+            if( x === ''){
+                alert('Entrer une valeur');
+                return;
+            };
+
+
+            //creation de button effacer
+            var cbutton = document.createElement('p');
+            cbutton.textContent = 'Supprimer';
+            cbutton.classList = 'effacer';
+            
+
+
+            //effet remove;
+            cbutton.addEventListener('click', (e) => {
+                idul.removeChild(cli);
+            });
+
+            cli.appendChild(cbutton);
+            underliste.appendChild(cli);
+
+            input.value = '';
+        }
+
+        button.addEventListener('click', vendre)
+            function vendre(){
+                appeler();
+            }
+
+        input.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter'){
+                appeler();
+            }
+        })
+
+        
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #e3f2fd;
+        }
+        body{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            top: 150px;
+        }
+        #idul{
+            position: relative;
+            /* left: 200px; */
+        }
+        li{
+            list-style: none;
+            width: 300px; 
+            background-color: rgba(13, 71, 161, 0.1);
+            margin-top: 10px;
+            height: 35px;
+            color: rgb(33, 59, 59);
+            text-align: left;
+            
+        }
+        ul{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .effacer{
+            /* position: absolute; */
+            /* left: 100px;  */
+            border: none;
+            color: white; 
+            /* padding: 10px; */
+            /* margin-left: 150px; */
+            background-color: red; 
+            cursor: pointer;
+        }  
+        h1{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+        div{
+            position: relative;
+        }  
+        #entrer{
+            border-radius: 4px;
+            width: 200px;
+            height: 25px;
+        }
+        #ajouter{
+            background-color: #0d47a1;
+            color: white;
+            padding: 4px;
+            cursor: pointer;
+            border: none;
+        }
+    </style> 
+
+</body>
+</html>
